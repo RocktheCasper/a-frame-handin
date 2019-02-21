@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <title>A-Frame</title>
+    <script scr="script.js"></script>
+</head>
+
+<body>
+    <a-scene background="color: #ECECEC">
+        <a-assets>
+            <!-- 360 equirectangular images for links -->
+            <!--<img id="background" src="img/360opera.jpg">-->
+            <img id="aske" src="">
+            <img id="philip" src="">
+            <img id="beata" src="">
+
+            <!-- 360 equirectangular video-->
+            <video id="opera360" autoplay loop="true" src="img/360_video_opera.mp4"></video>
+
+            <!-- MIXINS to make positioning easier -->
+            <a-mixin id="leftlink" position="2 1 -5"></a-mixin>
+            <a-mixin id="middlelink" position="6 1 -5"></a-mixin>
+            <a-mixin id="rightlink" position="10 1 -5"></a-mixin>
+        </a-assets>
+
+        <a-videosphere src="#opera360">
+        </a-videosphere>
+
+        <!--<a-sky src="#background"></a-sky>
+
+        <!-- Interlinks -->
+        <a-link class="link" href="http://www.askedahl.dk/opera/index.html" title="Aske" mixin="leftlink" image=""></a-link>
+        <a-link class="link" href="" title="Philip" mixin="middlelink" image=""></a-link>
+        <a-link class="link" href="http://bebutton.dk/kea/09-inner-outer-space/A-frame/index.html" title="Beata" mixin="rightlink" image=""></a-link>
+
+        <!-- POV -->
+        <a-camera look-controls wasd-controls>
+            <a-cursor fuse="false" fuse-timeout="1500" raycaster="objects: .link">
+
+            </a-cursor>
+        </a-camera>
+        <a-entity geometry="primitive: box;" material="color: blue;" position="0 1.6 -5" data-clickable click-change></a-entity>
+
+        <a-entity cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: [data-clickable];"></a-entity>
+    </a-scene>
+
+</body>
+
+</html>
