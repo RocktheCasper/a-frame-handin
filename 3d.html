@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>3D Interactive</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <!-- <script src="https://rawgit.com/aframevr/aframe/d611e70/dist/aframe-master.min.js"></script> -->
+    <!-- <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script> -->
+
+    <script>
+        AFRAME.registerComponent('click-change', {
+
+            init: function() {
+
+                var COLORS = [
+                    'red',
+                    'orange',
+                    'yellow',
+                    'green',
+                    'blue',
+                    'indigo',
+                    'violet'
+                ];
+
+                var i = 0;
+
+                this.el.addEventListener('click', function() {
+                    console.log('clicked');
+                    this.setAttribute('material', 'color', COLORS[i++ % COLORS.length]);
+                });
+            }
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <a-scene background="color: #ECECEC">
+        <a-assets> <img id="back" src="img/dc.jpg">
+            <a-mixin id="rightlink" position="0 0 0" rotation="90 190" scale="1% 1% 1% 1%"></a-mixin>
+        </a-assets>
+        <a-entity environment="preset: arches;  seed: 3; "></a-entity>
+
+        <a-camera></a-camera>
+
+        <a-entity geometry="primitive: box;" material="color: gray;" position="0 1.6 -5" data-clickable click-change></a-entity>
+
+        <a-entity cursor="rayOrigin: mouse; fuse: false;" raycaster="objects: [data-clickable];"></a-entity>
+        <a-link class="link" href="index.html" title="Back" mixin="rightlink" image="#back"></a-link>
+
+    </a-scene>
+</body>
+
+</html>

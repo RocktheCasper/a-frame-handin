@@ -6,47 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
     <title>A-Frame</title>
     <script scr="script.js"></script>
 </head>
 
 <body>
-    <!---<a-scene background="color: #ECECEC">-->
-    <a-assets>
-        <!-- 360 equirectangular images for links -->
-        <img id="background" src="img/dc.jpg">
-        <img id="video" src="img/360opera.jpg">
-        <img id="aske" src="">
-        <img id="philip" src="">
-        <img id="beata" src="">
+    <a-scene background="color: #ECECEC">
+        <a-assets>
+            <!-- 360 equirectangular images for links -->
+            <img id="piz" src="img/piz.jpg">
+            <img id="dc" src="img/dc.jpg">
+            <img id="pano" src="img/pano.png">
+            <img id="video" src="img/360opera.jpg">
+            <img id="aske" src="">
+            <img id="philip" src="">
+            <img id="beata" src="">
 
-        <!-- 360 equirectangular video
+            <!-- 360 equirectangular video
             <video id="opera360" autoplay loop="true" src="img/Opera_1080.mp4"></video>-->
 
-        <!-- MIXINS to make positioning easier -->
-        <a-mixin id="videolink" position="15 1 -5"></a-mixin>
-        <a-mixin id="leftlink" position="2 1 -5"></a-mixin>
-        <a-mixin id="middlelink" position="6 1 -5"></a-mixin>
-        <a-mixin id="rightlink" position="10 1 -5"></a-mixin>
-    </a-assets>
+            <!-- MIXINS to make positioning easier -->
+            <a-mixin id="videolink" position="15 2 -5"></a-mixin>
+            <a-mixin id="leftlink" position="2 2 -5"></a-mixin>
+            <a-mixin id="middlelink" position="6 2 -5"></a-mixin>
+            <a-mixin id="rightlink" position="10 2 -5"></a-mixin>
+            <a-mixin id="unity" position="2 2 5"></a-mixin>
+            <a-mixin id="what" position="6 2 5"></a-mixin>
 
-    <!--<a-videosphere src="#opera360">
+        </a-assets>
+
+        <!--<a-videosphere src="#opera360">
         </a-videosphere>-->
 
-    <a-sky src="#background"></a-sky>
+        <a-sky src="#background"></a-sky>
+        <a-entity environment="preset: arches;  seed: 2; "></a-entity>
 
-    <!-- Interlinks -->
-    <a-link class="link" href="video.html" title="360 Video" mixin="videolink" image="#video"></a-link>
-    <a-link class="link" href="http://www.askedahl.dk/opera/index.html" title="Aske" mixin="leftlink" image=""></a-link>
-    <a-link class="link" href="http://philipstampe.dk/KEA/Semester_3/A-Frame/index.html" title="Philip" mixin="middlelink" image=""></a-link>
-    <a-link class="link" href="http://bebutton.dk/kea/09-inner-outer-space/A-frame/index.html" title="Beata" mixin="rightlink" image=""></a-link>
+        <!-- Interlinks -->
+        <a-link class="link" href="video.html" title="360 Video" mixin="videolink" image="#video"></a-link>
+        <a-link class="link" href="http://www.askedahl.dk/opera/index.html" title="Aske" mixin="leftlink" image="#dc"></a-link>
+        <a-link class="link" href="http://www.philipstampe.dk/KEA/Semester_3/A-Frame/index.html" title="Philip" mixin="middlelink" image="#pano"></a-link>
+        <a-link class="link" href="http://bebutton.dk/kea/09-inner-outer-space/A-frame/index.html" title="Beata" mixin="rightlink" image="#piz"></a-link>
+        <a-link class="link" href="" title="Unity" mixin="unity" image=""></a-link>
+        <a-link class="link" href="3d.html" title="3D" mixin="what" image=""></a-link>
 
-    <!-- POV -->
-    <a-entity camera look-controls wasd-controls position="5 2" accelereation="100">
-        <a-cursor fuse="false" fuse-timeout="1500" raycaster="objects: .link">
+        <!-- POV -->
+        <a-entity camera look-controls wasd-controls position="5 2" acceleration="500">
+            <a-cursor fuse="false" fuse-timeout="1500" raycaster="objects: .link">
 
-        </a-cursor>
-    </a-entity>
+            </a-cursor>
+        </a-entity>
 
     </a-scene>
 
