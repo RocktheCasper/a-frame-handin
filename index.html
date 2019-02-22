@@ -11,42 +11,42 @@
 </head>
 
 <body>
-    <a-scene background="color: #ECECEC">
-        <a-assets>
-            <!-- 360 equirectangular images for links -->
-            <img id="background" src="img/dc.jpg">
-            <img id="video" src="img/360opera.jpg">
-            <img id="aske" src="">
-            <img id="philip" src="">
-            <img id="beata" src="">
+    <!---<a-scene background="color: #ECECEC">-->
+    <a-assets>
+        <!-- 360 equirectangular images for links -->
+        <img id="background" src="img/dc.jpg">
+        <img id="video" src="img/360opera.jpg">
+        <img id="aske" src="">
+        <img id="philip" src="">
+        <img id="beata" src="">
 
-            <!-- 360 equirectangular video
+        <!-- 360 equirectangular video
             <video id="opera360" autoplay loop="true" src="img/Opera_1080.mp4"></video>-->
 
-            <!-- MIXINS to make positioning easier -->
-            <a-mixin id="videolink" position="15 1 -5"></a-mixin>
-            <a-mixin id="leftlink" position="2 1 -5"></a-mixin>
-            <a-mixin id="middlelink" position="6 1 -5"></a-mixin>
-            <a-mixin id="rightlink" position="10 1 -5"></a-mixin>
-        </a-assets>
+        <!-- MIXINS to make positioning easier -->
+        <a-mixin id="videolink" position="15 1 -5"></a-mixin>
+        <a-mixin id="leftlink" position="2 1 -5"></a-mixin>
+        <a-mixin id="middlelink" position="6 1 -5"></a-mixin>
+        <a-mixin id="rightlink" position="10 1 -5"></a-mixin>
+    </a-assets>
 
-        <!--<a-videosphere src="#opera360">
+    <!--<a-videosphere src="#opera360">
         </a-videosphere>-->
 
-        <a-sky src="#background"></a-sky>
+    <a-sky src="#background"></a-sky>
 
-        <!-- Interlinks -->
-        <a-link class="link" href="video.html" title="360 Video" mixin="videolink" image="#video"></a-link>
-        <a-link class="link" href="http://www.askedahl.dk/opera/index.html" title="Aske" mixin="leftlink" image=""></a-link>
-        <a-link class="link" href="http://philipstampe.dk/KEA/Semester_3/A-Frame/index.html" title="Philip" mixin="middlelink" image=""></a-link>
-        <a-link class="link" href="http://bebutton.dk/kea/09-inner-outer-space/A-frame/index.html" title="Beata" mixin="rightlink" image=""></a-link>
+    <!-- Interlinks -->
+    <a-link class="link" href="video.html" title="360 Video" mixin="videolink" image="#video"></a-link>
+    <a-link class="link" href="http://www.askedahl.dk/opera/index.html" title="Aske" mixin="leftlink" image=""></a-link>
+    <a-link class="link" href="http://philipstampe.dk/KEA/Semester_3/A-Frame/index.html" title="Philip" mixin="middlelink" image=""></a-link>
+    <a-link class="link" href="http://bebutton.dk/kea/09-inner-outer-space/A-frame/index.html" title="Beata" mixin="rightlink" image=""></a-link>
 
-        <!-- POV -->
-        <a-entity camera look-controls wasd-controls position="5 2" accelereation="100">
-            <a-cursor fuse="false" fuse-timeout="1500" raycaster="objects: .link">
+    <!-- POV -->
+    <a-entity camera look-controls wasd-controls position="5 2" accelereation="100">
+        <a-cursor fuse="false" fuse-timeout="1500" raycaster="objects: .link">
 
-            </a-cursor>
-        </a-entity>
+        </a-cursor>
+    </a-entity>
 
     </a-scene>
 
